@@ -1,0 +1,22 @@
+{% load static %}
+<html>
+<head>
+<title>Django blog</title>
+    <link rel ="stylesheet" href="{% static 'css/base.css' %}">
+</head>
+<body>
+<header>
+<h1><a href="/">Добро пожаловать!</a></h1>
+</header>
+    {% if user.is_authenticated %}
+    <p>Hi {{ user.username }}!</p>
+    <p><a href="{% url 'logout' %}">logout</a></p>
+    {%else%}
+    <p>Вы не зарегистрированы</p>
+    <a href="{%url 'login'%}">login</a>
+    
+    {%endif%}
+{% block content %}
+{% endblock content %}
+</body>
+</html>

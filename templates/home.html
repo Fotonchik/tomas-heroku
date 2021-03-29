@@ -1,6 +1,9 @@
-<h1>Message!</h1>
-<ul>
-{% for post in object_list %}
-<li>{{ post }}</li> <!-- -то что возвращает listViews-->
+{% extends 'base.html' %}
+{% block content %}
+    {% for post in object_list %}
+        <div class="post-entry">
+            <h2><a href="">{{ post.title }}</a></h2>
+            <p>{{ post.body }}</p>
+        </div>
     {% endfor %}
-</ul>
+{% endblock content %}
